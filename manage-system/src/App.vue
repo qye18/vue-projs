@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-aside width="200px">
+        <CommonNav />
+      </el-aside>
+      <el-container>
+        <el-header>
+          <CommonHeader />
+        </el-header>
+        <el-main>
+          <MainContent></MainContent>
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CommonHeader from "./components/CommonHeader.vue";
+import CommonNav from "./components/CommonNav.vue";
+import MainContent from "./views/MainContent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CommonHeader,
+    CommonNav,
+    MainContent,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html,body {
+    margin: 0;
+    padding: 0;
+  }
+  .el-aside::-webkit-scrollbar {
+      display: none;
+   }
+
 </style>

@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1>header区域</h1>
+    <h1>sub page2</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name:'CommonHeader'
+  name:'SubPage2'
 }
 </script>
 
-<style lang="less" scoped>
+<style>
 
 </style>
