@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-aside width="200px">
+      <el-aside width="auto">
         <CommonNav />
       </el-aside>
       <el-container>
@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less">
   html,body {
     margin: 0;
     padding: 0;
@@ -39,5 +39,13 @@ export default {
   .el-aside::-webkit-scrollbar {
       display: none;
    }
+  
+  .el-container {
+    
+    .el-header {
+      background-color: black;
+      color: white;
+    }
+  }
 
 </style>

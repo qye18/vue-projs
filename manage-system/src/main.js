@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/App.vue'
 import VueRouter from 'vue-router';
-import router from './router';
+import router from '@/router';
+import store from '@/store'
 import { Button, Container, Header, Aside, Main, Menu, MenuItem, Submenu, MenuItemGroup,
-Col, Row } from 'element-ui';
+Col, Row, Breadcrumb, BreadcrumbItem, Dropdown, DropdownItem, DropdownMenu } from 'element-ui';
 
 Vue.use(Col);
 Vue.use(Row);
@@ -16,12 +17,18 @@ Vue.use(Menu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
 Vue.use(Submenu);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 const vc = new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')
 
-// console.log(vc);
+// console.log(vc.$store);

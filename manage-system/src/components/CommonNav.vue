@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <el-col :span="12">
+  <div class="common-nav">
       <el-menu
         default-active="2"
         class="el-menu-vertical-demo"
@@ -9,8 +8,9 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b"
+        :collapse="isCollapse"
       >
-        <h5>通用后台管理系统</h5>
+        <h5>{{ isCollapse? '后台' : '通用后台管理系统' }}</h5>
 
         <el-menu-item
           v-for="item in menuWithoutChidren"
@@ -41,11 +41,11 @@
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
-    </el-col>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "CommonNav",
   data() {
@@ -93,6 +93,7 @@ export default {
           ],
         },
       ],
+      // isCollapse:true
     };
   },
   computed: {
@@ -102,8 +103,12 @@ export default {
     menuWithoutChidren() {
       return this.menuData.filter((item) => !item.children);
     },
+    ...mapState({
+      isCollapse: state => state.commonNav.isCollapse
+    })
   },
   mounted() {
+    console.log(this.$store);
     // console.log(this.$route);
   },
   methods: {
@@ -126,14 +131,20 @@ export default {
 </script>
 
 <style lang="less">
-.el-col {
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+.common-nav {
   width: 100%;
   h5 {
     color: white;
     font-weight: 400;
     text-align: center;
   }
+ 
   .el-menu {
+    border-right: none;
     height: 100vh;
     .el-menu-item {
       font-size: 12px;
